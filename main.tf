@@ -9,19 +9,23 @@ terraform {
 
 data "aws_caller_identity" "current" {}
 
-variable "username" {
-  description = "The username for the DB master user"
+variable "access_key" {
+  description = "AWS access_key"
   type        = string
-}
-variable "password" {
-  description = "The password for the DB master user"
-  type        = string
+  sensitive   = true
 }
 
+variable "secret_key" {
+  description = "AWS secret_key"
+  type        = string
+  sensitive   = true
+}
+
+# Configure the AWS Provider
 provider "aws" {
-  region     = "us-west-2"
-  access_key = var.username
-  secret_key = var.password
+    region="us-west-2"
+    access_key = "${var.access_key}"
+    secret_key = "${var.secret_key}"
 }
 
 output "account_id" {
