@@ -5,8 +5,6 @@ terraform {
       version = "~> 4.16"
     }
   }
-
-  required_version = ">= 1.2.0"
 }
 
 provider "aws" {
@@ -14,7 +12,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+  ami           = "ami-0df24e148fdb9f1d8"
   instance_type = "t2.micro"
 
   tags = {
