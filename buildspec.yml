@@ -15,7 +15,6 @@ phases:
   build:
     commands:
       - echo "Building infrastructure with Terraform"            
-      - cd terraform-spec/ 
       - terraform version
       - terraform init 
       #- terraform destroy -target aws_ecr_repository.group1-capstone2b-final
