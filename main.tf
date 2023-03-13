@@ -22,8 +22,11 @@ output "caller_user" {
 }
 
 provider "aws" {
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
   region  = "us-west-2"
 }
+
 
 resource "aws_instance" "app_server" {
   ami           = "ami-0df24e148fdb9f1d8"
